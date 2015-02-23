@@ -1,0 +1,54 @@
+a:hover{
+	color: black;
+}
+
+.btn{
+	line-height: 26px;
+	border: none;
+}
+
+.btn-group .btn:not( :first-child ){
+	border-left: 1px solid #ccc;
+	margin-left: 0;
+}
+
+#drawing .btn.disabled {
+	opacity: 1;
+}
+
+.btn-primary{
+	background-color: #ee2a25;
+}
+
+.btn-primary:hover, .btn-primary:focus{
+	background-color: #df3330;
+}
+
+.btn-info, .btn-info.disabled{
+	background-color: rgba(0,0,0,0.7);
+	border-color: white;
+}
+
+.btn-info:hover, .btn-info:focus{
+	background-color: rgba(0,0,0,0.9) !important;
+}
+
+.modal-header, .modal-footer{
+	border: none;
+}
+
+.modal-dialog{
+	margin-top: 200px;
+}
+
+.form-control{
+	background-color: #eee;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.list-group-item:last-child{
+	border-radius: 0;
+}

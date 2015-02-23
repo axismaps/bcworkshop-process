@@ -1,0 +1,10 @@
+{
+  "name": "bcworkshop-collect",
+  "version": "0.1",
+  "dependencies": {
+    "bootstrap": "~3.3.2",
+    "leaflet": "~0.7.3",
+    "typeahead.js": "~0.10.5",
+    "underscore": "~1.7.0"
+  }
+}
