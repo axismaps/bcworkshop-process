@@ -125,3 +125,8 @@ aside h5 + p{
 .service + .service h3{
 	display: none;
 }
+
+aside table{
+	width: 100%;
+	margin: 10px;
+}

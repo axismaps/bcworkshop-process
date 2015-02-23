@@ -1,9 +1,11 @@
 var map,
 	neighborhoods,
+	template,
 	endpoint = window.location.origin + ':3000';
 
 function init(){
 	init_map();
+	init_template();
 	init_events();
 	init_names();
 	resize();
@@ -57,6 +59,12 @@ function featureClick( e ) {
 	if( selected ) neighborhoods.resetStyle( selected );
 	selected = e.target;
 	show_details( e.target.feature.properties );
+}
+
+function init_template() {
+	$.getJSON( 'template.json', null, function( json ){
+		template = json.template;
+	})
 }
 
 function init_events(){	

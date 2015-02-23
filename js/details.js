@@ -28,6 +28,15 @@ function show_details( properties ) {
 						if( item.email ) $div.append( '<h5>Email:</h5><p><a href="mailto:' + item.email + '">' + item.email + '</a></p>' );
 						if( item.phone ) $div.append( '<h5>Phone:</h5><p>' + item.phone + '</p>' );
 						if( item.url ) $div.append( '<p><a href="' + item.url + '" target="_blank">Website</a></p>' );
+					});
+					
+					$.ajax( endpoint + '/template', {
+						data : { json : JSON.stringify( template ), id : properties.id },
+						dataType : 'html',
+						type : "POST",
+						success : function( html ) {
+							$( "aside" ).append( html );
+						}
 					})
 				}
 			})
