@@ -1,0 +1,19 @@
+#probe{
+	padding: 5px 10px;
+	position: fixed;
+	background-color: white;
+	font-size: 14px;
+	font-weight: bold;
+	box-shadow: 0 0 4.8px 0.3px rgba(0, 0, 0, 0.25);
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+#probe:after{
+	content: "Click to learn more...";
+	display: block;
+	color: #999;
+	font-size: 14px;
+	font-style: italic;
+	font-weight: normal;
+}

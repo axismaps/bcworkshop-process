@@ -1,4 +1,5 @@
 var map,
+	neighborhoods,
 	endpoint = window.location.origin + ':3000';
 
 function init(){
@@ -27,18 +28,28 @@ function init_map(){
     		},
     		onEachFeature : function( feature, layer ) {
 	    		layer.on({
-				mouseover : highlightFeature
-				//mouseout: resetHighlight,
+				mouseover : highlightFeature,
+				mouseout : resetHighlight
 				//click: zoomToFeature
 			});
     		}
 	});
 		
-	var neighborhoods = omnivore.topojson( endpoint + "/neighborhoods", null, layerStyle ).addTo( map );
+	neighborhoods = omnivore.topojson( endpoint + "/neighborhoods", null, layerStyle ).addTo( map );
 }
 
 function highlightFeature( e ) {
-	console.log( e.target.feature.properties.name );
+	var layer = e.target;
+	
+	layer.setStyle({
+        color : '#f00'
+    });
+    
+	show_probe( e, layer.feature.properties.name );
+}
+
+function resetHighlight( e ) {
+	neighborhoods.resetStyle( e.target );
 }
 
 function init_events(){	
