@@ -42,6 +42,21 @@
 				}
 			],
 			"footer" : "</table></div>"
+		},
+		{
+			"query" : "SELECT council, councilper FROM neighborhoods INNER JOIN city_council ON ST_WITHIN( ST_CENTROID( neighborhoods.geom ), city_council.geom )",
+			"header" : "<div><h3><span class='glyphicon glyphicon-info-sign'></span> Key Facts</h3><table>",
+			"style" : [
+				{
+					"data" : "council",
+					"format" : "<p><b>City Council District ||data||</b></p>"
+				},
+				{
+					"data" : "councilper",
+					"format" : "<h5>Councilperson:</h5><p>||data||</p>"
+				}
+			],
+			"footer" : "</div>"
 		}
 	]
 }
