@@ -14,8 +14,31 @@ function init_map(){
 		zoomControl: false,
 		minZoom : 10,
 		maxBounds : [ [ 32.5, -96.55 ], [ 33.05, -97.05 ] ]
-	}).setView( [ 32.78, -96.8 ], 12 );
+	}).setView( [ 32.78, -96.8 ], 11 );
 	L.tileLayer( tileAddress ).addTo( map );
+
+	//loading neighborhood topojson
+	var layerStyle = L.geoJson( null, {
+		style : function( feature ) {
+			return { 
+				color : '#000',
+				weight : 2
+			};
+    		},
+    		onEachFeature : function( feature, layer ) {
+	    		layer.on({
+				mouseover : highlightFeature
+				//mouseout: resetHighlight,
+				//click: zoomToFeature
+			});
+    		}
+	});
+		
+	var neighborhoods = omnivore.topojson( endpoint + "/neighborhoods", null, layerStyle ).addTo( map );
+}
+
+function highlightFeature( e ) {
+	console.log( e.target.feature.properties.name );
 }
 
 function init_events(){	
