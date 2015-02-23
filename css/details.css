@@ -94,6 +94,8 @@ aside p{
 
 aside > div{
 	border-top: 1px solid #999;
+	padding-top: 15px;
+	margin: 15px 0;
 }
 
 aside h3, aside h4, aside h5{
@@ -127,7 +129,7 @@ aside h5 + p{
 }
 
 aside table{
-	width: 100%;
+	width: 240px;
 	margin: 10px;
 }
 
