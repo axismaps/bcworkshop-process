@@ -1,20 +1,21 @@
 #probe{
-	padding: 5px 10px;
-	margin: -50px 0 0 10px;
 	position: fixed;
-	background-color: white;
-	font-size: 14px;
-	font-weight: bold;
-	box-shadow: 0 0 4.8px 0.3px rgba(0, 0, 0, 0.25);
+	display: none;
+	margin: -50px 0 0 10px;
+	padding: 5px 10px;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
+	background-color: white;
+	box-shadow: 0 0 4.8px 0.3px rgba(0, 0, 0, 0.25);
+	font-weight: bold;
+	font-size: 14px;
 }
 
 #probe:after{
-	content: "Click to learn more...";
 	display: block;
 	color: #999;
-	font-size: 14px;
-	font-style: italic;
+	content: "Click to learn more...";
 	font-weight: normal;
+	font-style: italic;
+	font-size: 14px;
 }
