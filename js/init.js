@@ -80,20 +80,30 @@ function init_names() {
 		queryTokenizer : Bloodhound.tokenizers.whitespace,
 		limit : 4,
 		prefetch : {
-			url : endpoint + '/names',
-			filter : function( list ) {
-				return $.map( list, function( neighborhood ){ return { name : neighborhood }; });
-    			}
+			url : endpoint + '/names'
 		}
 	});
-	
 	names.initialize();
 	
-	$( '#name-input' ).typeahead(null, {
-		name : 'neighborhoods',
-		displayKey : 'name',
-		source : names.ttAdapter()
-	});
+	$( '#name-input' )
+		.typeahead( null, {
+			name : 'neighborhoods',
+			displayKey : 'name',
+			source : names.ttAdapter()
+		})
+		.on( 'typeahead:selected', function( e, obj ) {
+			selected = get_feature( obj.id );
+			selected.setStyle({
+		        color : '#f00'
+		    });
+			show_details( obj );
+		})
+}
+
+function get_feature( id ) {
+	return _.find( neighborhoods.getLayers(), function( l ) {
+		return id == l.feature.properties.id;
+	})
 }
 
 function resize(){
