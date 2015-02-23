@@ -111,3 +111,11 @@ aside h5{
 aside h5 + p{
 	margin-top: 0;
 }
+
+.service + .service{
+	border-top: none;
+}
+
+.service + .service h3{
+	display: none;
+}
