@@ -1,3 +1,5 @@
+var selected;
+
 function show_probe( e, text ) {
 	$( "#probe" )
 		.show()

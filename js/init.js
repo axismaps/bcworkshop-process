@@ -49,11 +49,13 @@ function highlightFeature( e ) {
 }
 
 function resetHighlight( e ) {
-	neighborhoods.resetStyle( e.target );
+	if( selected == undefined || e.target.feature.properties.id != selected.feature.properties.id ) neighborhoods.resetStyle( e.target );
 	$( "#probe" ).hide();
 }
 
 function featureClick( e ) {
+	if( selected ) neighborhoods.resetStyle( selected );
+	selected = e.target;
 	show_details( e.target.feature.properties );
 }
 
