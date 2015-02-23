@@ -130,3 +130,21 @@ aside table{
 	width: 100%;
 	margin: 10px;
 }
+
+aside td:first-child{
+	font-weight: bold;
+	white-space: nowrap;
+	overflow: hidden;
+	width: 210px;
+}
+
+aside td:first-child:after{
+	width: 0;
+	display: inline-block;
+	font-weight: normal;
+    content: ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ";
+}
+
+aside td:last-child{
+	text-align: right;
+}
