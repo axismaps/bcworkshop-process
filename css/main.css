@@ -3,7 +3,8 @@ body{
 }
 
 header{
-	height: 140px;
+	height: 139px;
+	border-bottom: 1px solid #999;
 }
 
 header a{
@@ -51,6 +52,11 @@ header, #map{
 
 #controls{
 	left: 20px;
+	z-index: 2;
+}
+
+.details #controls{
+	left: 320px;
 }
 
 #controls .btn-group, #controls > a.btn{

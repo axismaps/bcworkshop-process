@@ -29,8 +29,8 @@ function init_map(){
     		onEachFeature : function( feature, layer ) {
 	    		layer.on({
 				mouseover : highlightFeature,
-				mouseout : resetHighlight
-				//click: zoomToFeature
+				mouseout : resetHighlight,
+				click : featureClick
 			});
     		}
 	});
@@ -51,6 +51,10 @@ function highlightFeature( e ) {
 function resetHighlight( e ) {
 	neighborhoods.resetStyle( e.target );
 	$( "#probe" ).hide();
+}
+
+function featureClick( e ) {
+	show_details( e.target.feature.properties );
 }
 
 function init_events(){	
@@ -91,7 +95,7 @@ function init_names() {
 }
 
 function resize(){
-	$( "#map" ).height( $( window ).height() - 140 );
+	$( "aside, #map" ).height( $( window ).height() - 140 );
 	map.invalidateSize();
 }
 
