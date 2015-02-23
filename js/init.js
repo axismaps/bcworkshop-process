@@ -50,6 +50,7 @@ function highlightFeature( e ) {
 
 function resetHighlight( e ) {
 	neighborhoods.resetStyle( e.target );
+	$( "#probe" ).hide();
 }
 
 function init_events(){	
