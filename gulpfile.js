@@ -17,4 +17,7 @@ gulp.task( 'default', function(){
     	
     	gulp.src( 'bower_components/bootstrap/fonts/*' )
     		.pipe( gulp.dest( 'public/fonts' ) );
+    		
+    	gulp.src( 'template.json' )
+    		.pipe( gulp.dest( 'public/' ) );
 });
