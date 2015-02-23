@@ -1,3 +1,37 @@
+.twitter-typeahead, .tt-dropdown-menu{
+	width: 100%;
+}
+
+.tt-dropdown-menu{
+	background-color: white;
+	border: 1px solid #999;
+	box-shadow: 0 0 4.8px 0.3px rgba(0, 0, 0, 0.25);
+}
+
+.tt-suggestion {
+    padding: 0 20px;
+    line-height: 50px;
+    border-bottom: 1px solid #999;
+}
+
+.tt-suggestion.tt-cursor{
+    background-color: #eee;
+}
+
+.tt-suggestion p{
+	margin: 0;
+}
+
+#search{
+	right: 20px;
+}
+
+#search input{
+	width: 300px;
+	height: 40px;
+	box-shadow: 0 0 4.8px 0.3px rgba(0, 0, 0, 0.25);
+}
+
 #probe{
 	position: fixed;
 	display: none;

@@ -44,9 +44,12 @@ header, #map{
 	width: 100%;
 }
 
-#controls{
+#controls, #search{
 	position: absolute;
 	top: 150px;
+}
+
+#controls{
 	left: 20px;
 }
 
@@ -62,64 +65,6 @@ header, #map{
 
 #zoom{
 	color: #666;
-}
-
-#drawing, #polygon-controls, #finish-controls{
-	display: none;
-}
-
-#drawn{
-	min-width: 300px;
-	margin: 0;
-	position: fixed;
-	bottom: 0;
-	left: 20px;
-	-webkit-transition: all 250ms ease-in;
-	-moz-transition: all 250ms ease-in;
-	-ms-transition: all 250ms ease-in;
-	-o-transition: all 250ms ease-in;
-	transition: all 250ms ease-in;
-}
-
-#drawn.up{
-	margin-bottom: 0 !important;
-}
-
-#drawn #switch{
-	float: right;
-	color: #666;
-	font-size: 16px;
-	cursor: pointer;
-}
-
-#drawn .down{
-	display: none;
-}
-
-#drawn.up .down{
-	display: inline;
-}
-
-#drawn.up .up{
-	display: none;
-}
-
-#drawn li:first-child{
-	background-color: white;
-}
-
-.delete{
-	float: right;
-	cursor: pointer;
-}
-
-.swatch{
-	width: 12px;
-	height: 12px;
-	margin-right: 10px;
-	display: inline-block;
-	position: relative;
-	top: 1px;
 }
 
 #about .modal-footer{
