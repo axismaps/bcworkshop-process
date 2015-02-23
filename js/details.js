@@ -12,9 +12,8 @@ function show_probe( e, text ) {
 
 function show_details( properties ) {
 	$( "body" ).addClass( "details" );
-	$( "aside" )
-		.empty()
-		.append( "<h2>" + properties.name + "</h2>" );
+	$( "aside" ).empty();
+	$( "#selected" ).text( properties.name );
 	
 	$.ajax( endpoint + '/names/description/' + properties.id, {
 		success : function( data ) {

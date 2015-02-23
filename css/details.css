@@ -55,25 +55,31 @@
 	font-size: 14px;
 }
 
-aside{
+aside, #selected{
 	width: 300px;
-	padding: 0 20px;
 	position: fixed;
-	background-color: white;
 	z-index: 1;
 	left: -300px;
+}
+
+aside{
+	padding: 0 20px;
+	margin-top: 60px;
+	background-color: white;
+	overflow: auto;
 	border-right: 1px solid #999;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
-.details aside{
+.details aside, .details #selected{
 	left: 0;
 }
 
-aside h2{
-	margin: 0 -20px;
+#selected{
+	top: 140px;
+	margin: 0;
 	font-size: 18px;
 	font-weight: 400;
 	line-height: 60px;

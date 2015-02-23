@@ -107,7 +107,8 @@ function get_feature( id ) {
 }
 
 function resize(){
-	$( "aside, #map" ).height( $( window ).height() - 140 );
+	$( "#map" ).height( $( window ).height() - 140 );
+	$( "aside" ).height( $( window ).height() - 200 );
 	map.invalidateSize();
 }
 
