@@ -37,7 +37,7 @@ function init_map(){
     		}
 	});
 		
-	neighborhoods = omnivore.topojson( endpoint + "/neighborhoods", null, layerStyle ).addTo( map );
+	neighborhoods = omnivore.topojson( endpoint + "/topojson/neighborhoods/id%2Cname/", null, layerStyle ).addTo( map );
 }
 
 function highlightFeature( e ) {
