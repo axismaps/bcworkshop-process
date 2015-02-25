@@ -37,6 +37,13 @@
 				<a id="zoom-out" class="btn btn-default"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></a>
 				<a id="zoom-in" class="btn btn-default"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
 			</div>
+			<div class="dropdown btn-group" role="group">
+				<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true"><span class="glyphicon glyphicon-cog"></span></button>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+					<li role="presentation"><i>Choose a map overlay...</i></li>
+					<li role="presentation"><label><input type="radio" name="layers" value="" checked>None</label></li>
+				</ul>
+			</div>
 		</div>
 		
 		<div id="about" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
@@ -69,6 +76,7 @@
 		<script src="js/tiles.js"></script>
 		<script src="js/details.js"></script>
 		<script src="js/template.js"></script>
+		<script src="js/layers.js"></script>
 		<script src="js/init.js"></script>
 		<!-- endbuild -->
 	</body>
