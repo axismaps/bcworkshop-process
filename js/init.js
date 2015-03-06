@@ -1,13 +1,11 @@
 var map,
 	neighborhoods,
-	overlays,
 	template,
 	endpoint = window.location.origin + ':3000';
 
 function init(){
 	init_map();
 	init_events();
-	init_layers();
 	init_names();
 	resize();
 }
@@ -20,8 +18,6 @@ function init_map(){
 		maxBounds : [ [ 32.5, -96.55 ], [ 33.05, -97.05 ] ]
 	}).setView( [ 32.78, -96.8 ], 11 );
 	L.tileLayer( tileAddress ).addTo( map );
-	
-	overlays = L.layerGroup().addTo( map );
 	
 	//loading neighborhood topojson
 	var layerStyle = L.geoJson( null, {
@@ -77,29 +73,6 @@ function init_events(){
 		if( map.getZoom() + 1 >= map.getMaxZoom() ) $( "#zoom-in" ).addClass( "disabled" );
 		$( "#zoom-out" ).removeClass( "disabled" );
 	});
-}
-
-function init_layers() {
-	_.each( layers, function( layer ) {
-		$( ".dropdown-menu" ).append( '<li role="presentation"><label><input type="radio" name="layers" value="' + layer.table + '">' + layer.name + '</label></li>' );
-	});
-	
-	$( ".dropdown-menu input" ).click( function() {
-		overlays.clearLayers();
-		
-		if( $( this ).val() != '' ) {
-			var layerStyle = L.geoJson( null, {
-				style : function( feature ) {
-					return { 
-						color : '#ed2a24',
-						fillOpacity : 0,
-						pointerEvents : 'none'
-					};
-		    		}
-			});
-			omnivore.topojson( endpoint + "/topojson/" + $( this ).val(), null, layerStyle ).addTo( overlays );
-		}
-	})
 }
 
 function init_names() {
