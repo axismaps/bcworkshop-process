@@ -1,25 +1,31 @@
 var layers = [
 	{
 		"table" : "city_council",
-		"name" : "City Council Districts"
+		"name" : "City Council Districts",
+		"default": true
 	},
 	{
 		"table" : "school_districts",
-		"name" : "School Districts"
+		"name" : "School Districts",
+		"default": false
 	},
 	{
 		"table" : "zips",
-		"name" : "Zip Codes"
+		"name" : "Zip Codes",
+		"default": false
 	}
 ],
 overlays;
 
-function init_layers() {
+function init_layers( button ) {
+	//button should be a jquery object
+	
+	button.append( '<li role="presentation"><label><input type="radio" name="layers" value="" checked>None</label></li>' );
 	_.each( layers, function( layer ) {
-		$( ".dropdown-menu" ).append( '<li role="presentation"><label><input type="radio" name="layers" value="' + layer.table + '">' + layer.name + '</label></li>' );
+		button.append( '<li role="presentation"><label><input type="radio" name="layers" value="' + layer.table + '">' + layer.name + '</label></li>' );
 	});
 	
-	$( ".dropdown-menu input" ).click( function() {
+	button.find('input').click( function() {
 		overlays.clearLayers();
 		
 		if( $( this ).val() != '' ) {
@@ -38,4 +44,4 @@ function init_layers() {
 }
 
 overlays = L.layerGroup().addTo( map )
-init_layers();
+init_layers( $( ".dropdown-menu" ) );
