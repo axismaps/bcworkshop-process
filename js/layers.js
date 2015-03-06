@@ -2,7 +2,7 @@ var layers = [
 	{
 		"table" : "city_council",
 		"name" : "City Council Districts",
-		"default": true
+		"default": false
 	},
 	{
 		"table" : "school_districts",
@@ -22,10 +22,14 @@ function init_layers( button ) {
 	
 	button.append( '<li role="presentation"><label><input type="radio" name="layers" value="" checked>None</label></li>' );
 	_.each( layers, function( layer ) {
-		button.append( '<li role="presentation"><label><input type="radio" name="layers" value="' + layer.table + '">' + layer.name + '</label></li>' );
+		if (layer.default === true) {
+			button.append( '<li role="presentation"><label><input type="radio" name="layers" value="' + layer.table + '" checked="true">' + layer.name + '</label></li>' );
+		} else {
+			button.append( '<li role="presentation"><label><input type="radio" name="layers" value="' + layer.table + '">' + layer.name + '</label></li>' );
+		}
 	});
 	
-	button.find('input').click( function() {
+	button.find( 'input' ).click( function() {
 		overlays.clearLayers();
 		
 		if( $( this ).val() != '' ) {
@@ -40,7 +44,9 @@ function init_layers( button ) {
 			});
 			omnivore.topojson( endpoint + "/topojson/" + $( this ).val(), null, layerStyle ).addTo( overlays );
 		}
-	})
+	});
+	
+	button.find( 'input:checked' ).trigger( 'click' );
 }
 
 overlays = L.layerGroup().addTo( map )
