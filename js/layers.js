@@ -18,8 +18,10 @@ var overlays;
 	];
 
 function init_layers( button ) {
-	//button should be a jquery object
+	//init layer group to store overlays
+	overlays = L.layerGroup().addTo( map );
 	
+	//button should be a jquery object
 	button.append( '<li role="presentation"><label><input type="radio" name="layers" value="" checked>None</label></li>' );
 	_.each( layers, function( layer ) {
 		if (layer.default === true) {
@@ -44,10 +46,6 @@ function init_layers( button ) {
 			});
 			omnivore.topojson( endpoint + "/topojson/" + $( this ).val(), null, layerStyle ).addTo( overlays );
 		}
-	});
-	
+	});	
 	button.find( 'input:checked' ).trigger( 'click' );
 }
-
-overlays = L.layerGroup().addTo( map )
-init_layers( $( ".dropdown-menu" ) );

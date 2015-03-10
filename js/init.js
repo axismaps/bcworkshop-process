@@ -5,6 +5,7 @@ var map,
 
 function init(){
 	init_map();
+	init_layers( $( ".dropdown-menu" ) );
 	init_events();
 	init_names();
 	resize();
