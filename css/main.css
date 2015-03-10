@@ -73,16 +73,6 @@ header, #map{
 	color: #666;
 }
 
-.dropdown-menu{
-	width: 200px;
-	padding: 15px;
-	line-height: 24px;
-}
-
-.dropdown-menu input{
-	margin-right: 10px;
-}
-
 #about .modal-footer{
 	padding-bottom: 20px;
 	text-align: left;
