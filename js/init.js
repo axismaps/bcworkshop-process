@@ -20,6 +20,7 @@ function init_map(){
 	L.tileLayer( tileAddress ).addTo( map );
 	
 	//loading neighborhood topojson
+	$( '#layer-switcher .dropdown-toggle' ).html( '<i class="fa fa-spinner fa-pulse"></i>' );
 	var layerStyle = L.geoJson( null, {
 		style : function( feature ) {
 			return { 
@@ -40,6 +41,7 @@ function init_map(){
 		.on( 'ready', function() {
 			//sets the maxBounds to the neighborhood bounds + 0.1%
 			map.setMaxBounds( neighborhoods.getBounds().pad( .2 ) );
+			$( '#layer-switcher .dropdown-toggle' ).html( '<i class="fa fa-cog"></i>' );
 		})
 		.addTo( map );
 }

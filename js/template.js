@@ -1,7 +1,7 @@
 var template = [
 	{
 		"query" : "SELECT * FROM ACS",
-		"header" : "<div><h3><span class='glyphicon glyphicon-th-list'></span> Summary Stats</h3><table>",
+		"header" : "<div><h3><i class='fa fa-th-list'></i> Summary Stats</h3><table>",
 		"style" : [
 			{
 				"data" : "pop2013",
@@ -44,11 +44,11 @@ var template = [
 	},
 	{
 		"query" : "SELECT council, councilper FROM neighborhoods INNER JOIN city_council ON ST_WITHIN( ST_CENTROID( neighborhoods.geom ), city_council.geom )",
-		"header" : "<div><h3><span class='glyphicon glyphicon-info-sign'></span> Key Facts</h3><table>",
+		"header" : "<div><h3><i class='fa fa-info-circle'></i> Key Facts</h3><table>",
 		"style" : [
 			{
 				"data" : "council",
-				"format" : "<p><b>City Council District ||data||</b></p>"
+				"format" : "<p><a href=\"http://dallascityhall.com/government/citycouncil/district||data||/Pages/default.aspx\"><b>City Council District ||data||</b></a></p>"
 			},
 			{
 				"data" : "councilper",
