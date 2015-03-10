@@ -15,8 +15,7 @@ function init_map(){
 	//Initializing map and tile layer
 	map = L.map( 'map', { 
 		zoomControl: false,
-		minZoom : 10,
-		maxBounds : [ [ 32.5, -96.55 ], [ 33.05, -97.05 ] ]
+		minZoom : 10
 	}).setView( [ 32.78, -96.8 ], 11 );
 	L.tileLayer( tileAddress ).addTo( map );
 	
@@ -37,7 +36,12 @@ function init_map(){
     		}
 	});
 		
-	neighborhoods = omnivore.topojson( endpoint + "/topojson/neighborhoods/id%2Cname/", null, layerStyle ).addTo( map );
+	neighborhoods = omnivore.topojson( endpoint + "/topojson/neighborhoods/id%2Cname/", null, layerStyle )
+		.on( 'ready', function() {
+			//sets the maxBounds to the neighborhood bounds + 0.1%
+			map.setMaxBounds( neighborhoods.getBounds().pad( .2 ) );
+		})
+		.addTo( map );
 }
 
 function highlightFeature( e ) {
