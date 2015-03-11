@@ -58,15 +58,15 @@ var template = [
 		"footer" : "</div>"
 	},
 	{
-		"query" : "SELECT neighborhoods.id, type, CASE WHEN type='video' THEN SUBSTRING(link FROM 19) END AS vidlink, CASE WHEN type='doc' THEN link END AS doclink FROM resources INNER JOIN neighborhoods ON neighborhoods.id = neighborhood",
+		"query" : "SELECT neighborhoods.id, type, CASE WHEN type='video' THEN SUBSTRING(link FROM 19) END AS video, CASE WHEN type='doc' THEN link END AS doc FROM resources INNER JOIN neighborhoods ON neighborhoods.id = neighborhood",
 		"header" : "<div><h3>Neighborhood Stories</h3>",
 		"style" : [
 			{
-				"data" : "vidlink",
+				"data" : "video",
 				"format" : '<iframe src="//player.vimeo.com/video/||data||" width="250" height="140" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
 			},
 			{
-				"data" : "doclink",
+				"data" : "doc",
 				"format" : "<a href=||data||>||data||</a>"
 			}
 		],
