@@ -58,7 +58,7 @@ var template = [
 		"footer" : "</table></div>"
 	},
 	{
-		"query" : "SELECT link, type, neighborhood FROM resources",
+		"query" : "SELECT * FROM resources",
 		"header" : "<div><h3>Stories</h3><table>",
 		"style" : [
 			{
