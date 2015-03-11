@@ -63,7 +63,7 @@ var template = [
 		"style" : [
 			{
 				"data" : "link",
-				"format" : '<iframe src="//player.vimeo.com/video/||data||" width="250" height="140" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen</iframe>'
+				"format" : '<iframe src="//player.vimeo.com/video/||data||" width="250" height="140" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
 			}
 		],
 		"footer" : "</div>"
