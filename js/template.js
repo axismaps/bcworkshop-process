@@ -59,7 +59,7 @@ var template = [
 	},
 	{
 		"query" : "SELECT * FROM resources",
-		"header" : "<div><h3>Stories</h3><table>",
+		"header" : "<div><h3>Resources</h3><table>",
 		"style" : [
 			{
 				"data" : "link",
