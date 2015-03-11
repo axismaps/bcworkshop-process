@@ -59,7 +59,7 @@ var template = [
 	},
 	{
 		"query" : "SELECT neighborhoods.id, type, CASE WHEN type='video' THEN SUBSTRING(link FROM 19) ELSE link END AS link FROM resources INNER JOIN neighborhoods ON neighborhoods.id = neighborhood",
-		"header" : "<div><h3>Resources</h3>",
+		"header" : "<div><h3>Neighborhood Stories</h3>",
 		"style" : [
 			{
 				"data" : "link",
