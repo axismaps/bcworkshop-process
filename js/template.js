@@ -44,7 +44,7 @@ var template = [
 	},
 	{
 		"query" : "SELECT council, councilper FROM neighborhoods INNER JOIN city_council ON ST_WITHIN( ST_CENTROID( neighborhoods.geom ), city_council.geom )",
-		"header" : "<div><h3><span class='glyphicon glyphicon-info-sign'></span> Key Facts</h3><table>",
+		"header" : "<div><h3><span class='glyphicon glyphicon-info-sign'></span> Key Facts</h3>",
 		"style" : [
 			{
 				"data" : "council",
@@ -55,17 +55,17 @@ var template = [
 				"format" : "<h5>Councilperson:</h5><p>||data||</p>"
 			}
 		],
-		"footer" : "</table></div>"
+		"footer" : "</div>"
 	},
 	{
 		"query" : "SELECT neighborhoods.id, type, CASE WHEN type='video' THEN SUBSTRING(link FROM 19) ELSE link END AS link FROM resources INNER JOIN neighborhoods ON neighborhoods.id = neighborhood",
-		"header" : "<div><h3>Resources</h3><table>",
+		"header" : "<div><h3>Resources</h3>",
 		"style" : [
 			{
 				"data" : "link",
 				"format" : '<iframe src="//player.vimeo.com/video/||data||" width="250" height="140" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen</iframe>'
 			}
 		],
-		"footer" : "</table></div>"
+		"footer" : "</div>"
 	}
 ];
