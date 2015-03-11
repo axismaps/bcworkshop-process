@@ -67,7 +67,7 @@ var template = [
 			},
 			{
 				"data" : "doc",
-				"format" : "<a href=||data||>||data||</a>"
+				"format" : "<p><b><a href=||data||>Neighborhood Story</a></b></p>"
 			}
 		],
 		"footer" : "</div>"
