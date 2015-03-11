@@ -56,5 +56,16 @@ var template = [
 			}
 		],
 		"footer" : "</div>"
+	},
+	{
+		"query" : "SELECT link, type, neighborhood FROM resources",
+		"header" : "<div><h3>Stories</h3><table>",
+		"style" : [
+			{
+				"data" : "link",
+				"format" : '<iframe src="//player.vimeo.com/video/||data||" width="250" height="140" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen</iframe>'
+			}
+		],
+		"footer" : "</table></div>"
 	}
 ];
