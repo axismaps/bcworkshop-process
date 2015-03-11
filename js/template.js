@@ -55,7 +55,7 @@ var template = [
 				"format" : "<h5>Councilperson:</h5><p>||data||</p>"
 			}
 		],
-		"footer" : "</div>"
+		"footer" : "</table></div>"
 	},
 	{
 		"query" : "SELECT link, type, neighborhood FROM resources",
