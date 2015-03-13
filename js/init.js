@@ -38,11 +38,14 @@ function init_map(){
 	
 	//fire intro screen
 	$( '#about' ).modal( 'show' );
+	$( '#about .close').hide();
 		
 	neighborhoods = omnivore.topojson( endpoint + "/topojson/neighborhoods/id%2Cname/", null, layerStyle )
 		.on( 'ready', function() {
 			//sets the maxBounds to the neighborhood bounds + 0.1%
 			map.setMaxBounds( neighborhoods.getBounds().pad( .2 ) );
+			
+			$( '#about .close').show();
 		})
 		.addTo( map );
 }
