@@ -35,11 +35,18 @@ function init_map(){
 			});
     		}
 	});
+	
+	//fire intro screen
+	$( '#about' ).modal( 'show' );
 		
 	neighborhoods = omnivore.topojson( endpoint + "/topojson/neighborhoods/id%2Cname/", null, layerStyle )
 		.on( 'ready', function() {
 			//sets the maxBounds to the neighborhood bounds + 0.1%
 			map.setMaxBounds( neighborhoods.getBounds().pad( .2 ) );
+			
+			//close intro screen
+			$( '#about' ).modal( 'hide' );
+			
 		})
 		.addTo( map );
 }
