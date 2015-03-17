@@ -1,5 +1,20 @@
 var template = [
 	{
+		"query" : "SELECT neighborhoods.id, type, CASE WHEN type='video' THEN SUBSTRING(link FROM 19) END AS video, CASE WHEN type='doc' THEN link END AS doc FROM resources INNER JOIN neighborhoods ON neighborhoods.id = neighborhood",
+		"header" : "<div><h3>Neighborhood Stories</h3>",
+		"style" : [
+			{
+				"data" : "video",
+				"format" : '<iframe src="//player.vimeo.com/video/||data||" width="250" height="140" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
+			},
+			{
+				"data" : "doc",
+				"format" : "<p><b><a href=||data||>Neighborhood Story</a></b></p>"
+			}
+		],
+		"footer" : "</div>"
+	},
+	{
 		"query" : "SELECT * FROM acs INNER JOIN neighborhoods ON acs.id = neighborhoods.id",
 		"header" : "<div><h3><span class='glyphicon glyphicon-th-list'></span> Summary Stats</h3><table>",
 		"style" : [
@@ -53,21 +68,6 @@ var template = [
 			{
 				"data" : "councilper",
 				"format" : "<h5>Councilperson:</h5><p>||data||</p>"
-			}
-		],
-		"footer" : "</div>"
-	},
-	{
-		"query" : "SELECT neighborhoods.id, type, CASE WHEN type='video' THEN SUBSTRING(link FROM 19) END AS video, CASE WHEN type='doc' THEN link END AS doc FROM resources INNER JOIN neighborhoods ON neighborhoods.id = neighborhood",
-		"header" : "<div><h3>Neighborhood Stories</h3>",
-		"style" : [
-			{
-				"data" : "video",
-				"format" : '<iframe src="//player.vimeo.com/video/||data||" width="250" height="140" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
-			},
-			{
-				"data" : "doc",
-				"format" : "<p><b><a href=||data||>Neighborhood Story</a></b></p>"
 			}
 		],
 		"footer" : "</div>"
