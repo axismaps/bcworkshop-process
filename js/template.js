@@ -1,6 +1,6 @@
 var template = [
 	{
-		"query" : "SELECT * FROM ACS",
+		"query" : "SELECT * FROM acs INNER JOIN neighborhoods ON acs.id = neighborhoods.id",
 		"header" : "<div><h3><span class='glyphicon glyphicon-th-list'></span> Summary Stats</h3><table>",
 		"style" : [
 			{
