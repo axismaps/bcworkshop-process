@@ -1,7 +1,7 @@
 var template = [
 	{
 		"query" : "SELECT neighborhoods.id, type, CASE WHEN type='video' THEN SUBSTRING(link FROM 19) END AS video, CASE WHEN type='doc' THEN link END AS doc FROM resources INNER JOIN neighborhoods ON neighborhoods.id = neighborhood",
-		"header" : "<div><h3>Neighborhood Stories</h3>",
+		"header" : "<div><h3><i class='fa fa-institution'></i> Neighborhood Stories</h3>",
 		"style" : [
 			{
 				"data" : "video",
@@ -16,7 +16,7 @@ var template = [
 	},
 	{
 		"query" : "SELECT * FROM acs INNER JOIN neighborhoods ON acs.id = neighborhoods.id",
-		"header" : "<div><h3><span class='glyphicon glyphicon-th-list'></span> Summary Stats</h3><table>",
+		"header" : "<div><h3><i class='fa fa-th-list'></i> Summary Stats</h3><table>",
 		"style" : [
 			{
 				"data" : "pop2013",
