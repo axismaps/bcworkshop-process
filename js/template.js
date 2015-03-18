@@ -1,5 +1,32 @@
 var template = [
 	{
+		"query" : "SELECT organizations.* FROM neighborhoods INNER JOIN organization_lookup ON neighborhoods.id = neighborhood INNER JOIN organizations ON organizations.id = organization WHERE neighborhoods.id = neighborhood",
+		"header" : "<div class='service'><h3><i class='fa fa-tree'></i> Organization</h3></div>",
+		"style" : [
+			{
+				"data" : "orgName",
+				"format" : "<h4>||data||</h4>"
+			},
+			{
+				"data" : "contactName",
+				"format" : "<h5>Contact person:</h5><p>||data||</p>"
+			},
+			{
+				"data" : "email",
+				"format" : "<h5>Email:</h5><p><a href='mailto:||data||'</a></p>"
+			},
+			{
+				"data" : "phone",
+				"format" : "<h5>Phone:</h5><p>||data||</p>"
+			},
+			{
+				"data" : "website",
+				"format" : "<p><a href='||data||'target='_blank'>Website</a></p>"
+			}
+		],
+		"footer" : "</div>"
+	},
+	{
 		"query" : "SELECT neighborhoods.id, type, CASE WHEN type='video' THEN SUBSTRING(link FROM 19) END AS video, CASE WHEN type='doc' THEN link END AS doc FROM resources INNER JOIN neighborhoods ON neighborhoods.id = neighborhood",
 		"header" : "<div><h3><i class='fa fa-institution'></i> Neighborhood Stories</h3>",
 		"style" : [
