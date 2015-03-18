@@ -70,6 +70,9 @@ function featureClick( e ) {
 		$( '#name-input' ).val('');
 	}
 	selected = e.target;
+	selected.setStyle({
+		color : '#ed2a24'
+	});
 	show_details( e.target.feature.properties, executing );
 }
 
