@@ -60,9 +60,13 @@ function resetHighlight( e ) {
 }
 
 function featureClick( e ) {
+	var executing = $( this );
+	if ( executing.data( 'executing' ) ) return;
+	executing.data( 'executing', true );
+	
 	if( selected !== undefined && e.target.feature.properties.id != selected.feature.properties.id ) neighborhoods.resetStyle( selected );
 	selected = e.target;
-	show_details( e.target.feature.properties );
+	show_details( e.target.feature.properties, executing );
 }
 
 function init_events(){	

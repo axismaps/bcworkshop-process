@@ -10,7 +10,7 @@ function show_probe( e, text ) {
 		})
 }
 
-function show_details( properties ) {
+function show_details( properties, executing ) {
 	$( "body" ).addClass( "details" );
 	$( "aside" ).empty();
 	$( "#selected" ).text( properties.name );
@@ -36,6 +36,7 @@ function show_details( properties ) {
 						type : "POST",
 						success : function( html ) {
 							$( "aside" ).append( html );
+							executing.removeData( 'executing' );
 						}
 					})
 				}
