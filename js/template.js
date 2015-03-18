@@ -13,7 +13,7 @@ var template = [
 			},
 			{
 				"data" : "email",
-				"format" : "<h5>Email:</h5><p><a href='mailto:||data||'</a></p>"
+				"format" : "<h5>Email:</h5><p><a href='mailto:||data||'>||data||</a></p>"
 			},
 			{
 				"data" : "phone",
