@@ -26,14 +26,14 @@ function init_map(){
 				color : '#000',
 				weight : 2
 			};
-    		},
-    		onEachFeature : function( feature, layer ) {
-	    		layer.on({
+    	},
+    	onEachFeature : function( feature, layer ) {
+	    	layer.on({
 				mouseover : highlightFeature,
 				mouseout : resetHighlight,
 				click : featureClick
 			});
-    		}
+    	}
 	});
 		
 	neighborhoods = omnivore.topojson( endpoint + "/topojson/neighborhoods/id%2Cname/", null, layerStyle )
