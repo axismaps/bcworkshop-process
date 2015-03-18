@@ -116,6 +116,17 @@ function get_feature( id ) {
 function resize(){
 	$( "#map" ).height( $( window ).height() - 140 );
 	$( "aside" ).height( $( window ).height() - 200 );
+	if ( $( "body" ).hasClass( "details" ) ){
+		$( "#map" ).css({
+			"margin-left": $( "aside" ).outerWidth() + "px",
+			"width": $( window ).width() - $( "aside" ).outerWidth() + "px"
+		});
+	} else {
+		$( "#map" ).css({
+			"margin-left": 0,
+			"width": "100%"
+		});
+	}
 	map.invalidateSize();
 }
 
