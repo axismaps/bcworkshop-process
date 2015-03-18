@@ -104,10 +104,7 @@ function init_names() {
 		})
 		.on( 'typeahead:selected', function( e, obj ) {
 			selected = get_feature( obj.id );
-			selected.setStyle({
-		        color : '#f00'
-		    });
-			show_details( obj );
+			selected.fire( 'click' );
 		})
 }
 
