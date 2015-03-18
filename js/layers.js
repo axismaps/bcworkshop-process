@@ -42,15 +42,19 @@ function init_layers( button ) {
 			$( "#dropdown-toggle" ).children().toggle();
 			var layerStyle = L.geoJson( null, {
 				style : function( feature ) {
-					return { 
+					return {
 						color : '#ed2a24',
 						fillOpacity : 0,
 						pointerEvents : 'none'
 					};
-		    		}
+				}
 			});
+			
+			$( "#dropdown-toggle" ).css( "pointer-events", "none" );
+			
 			omnivore.topojson( endpoint + "/topojson/" + $( this ).val(), null, layerStyle ).addTo( overlays ).on( 'ready', function() {
 				$( "#dropdown-toggle" ).children().toggle();
+				$( "#dropdown-toggle" ).css( "pointer-events", "auto" );
 			});
 		}
 	});	
