@@ -111,7 +111,9 @@ function init_names() {
 			newFeature.setStyle({
 				color : '#ed2a24'
 			});
-			newFeature.fire( 'click' );
+			neighborhoods.resetStyle( selected );
+			selected = newFeature;
+			show_details( obj );
 		})
 }
 
