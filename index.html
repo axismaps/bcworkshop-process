@@ -10,6 +10,7 @@
 		
 		<!-- build:css css/site.css -->
 		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+		<link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css" />
 		<link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
 		<link rel="stylesheet" href="css/main.css" />
 		<link rel="stylesheet" href="css/details.css" />
@@ -37,15 +38,20 @@
 			<input id="name-input" type="text" class="form-control" name="name" placeholder="Neighborhood name...">
 		</div>
 		<div id="controls">
-			<div id="zoom" class="btn-group" role="group">
-				<a id="zoom-out" class="btn btn-default"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></a>
-				<a id="zoom-in" class="btn btn-default"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
-			</div>
-			<div class="dropdown btn-group" role="group">
-				<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true"><span class="glyphicon glyphicon-cog"></span></button>
-				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-					<li role="presentation"><i>Choose a map overlay...</i></li>
-				</ul>
+			<div class="btn-toolbar">
+				<div id="zoom" class="btn-group" role="group">
+					<a id="zoom-out" class="btn btn-default"><i class="fa fa-minus" aria-hidden="true"></i></a>
+					<a id="zoom-in" class="btn btn-default"><i class="fa fa-plus" aria-hidden="true"></i></a>
+				</div>
+				<div id="layer-switcher" class="dropdown btn-group" role="group">
+					<button id="dropdown-toggle" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+						<img src="img/layers_360.png">
+						<i class="fa fa-spinner fa-pulse loading"></i>
+					</button>
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+						<li role="presentation"><i>Choose a map overlay...</i></li>
+					</ul>
+				</div>
 			</div>
 		</div>
 		

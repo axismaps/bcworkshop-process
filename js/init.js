@@ -20,7 +20,6 @@ function init_map(){
 	}).setView( [ 32.78, -96.8 ], 11 );
 	L.tileLayer( tileAddress ).addTo( map );
 	
-	//loading neighborhood topojson
 	var layerStyle = L.geoJson( null, {
 		style : function( feature ) {
 			return { 
