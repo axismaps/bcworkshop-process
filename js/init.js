@@ -112,7 +112,7 @@ function init_names() {
 			newFeature.setStyle({
 				color : '#ed2a24'
 			});
-			neighborhoods.resetStyle( selected );
+			if ( selected ) neighborhoods.resetStyle( selected );
 			selected = newFeature;
 			show_details( obj );
 		})
