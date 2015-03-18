@@ -60,7 +60,7 @@ function resetHighlight( e ) {
 }
 
 function featureClick( e ) {
-	if( selected ) neighborhoods.resetStyle( selected );
+	if( selected !== undefined && e.target.feature.properties.id != selected.feature.properties.id ) neighborhoods.resetStyle( selected );
 	selected = e.target;
 	show_details( e.target.feature.properties );
 }
