@@ -36,7 +36,7 @@ function show_details( properties, executing ) {
 						type : "POST",
 						success : function( html ) {
 							$( "aside" ).append( html );
-							executing.removeData( 'executing' );
+							if( executing ) executing.removeData( 'executing' );
 						}
 					})
 				// }
