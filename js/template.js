@@ -1,5 +1,16 @@
 var template = [
 	{
+		"query" : "SELECT description FROM neighborhoods",
+		"header" : "<div>",
+		"style" : [
+			{
+				"data" : "description",
+				"format" : "<p><i>||data||</i></p>"
+			}
+		],
+		"footer" : "</div>"
+	},
+	{
 		"query" : "SELECT organizations.* FROM neighborhoods INNER JOIN organization_lookup ON neighborhoods.id = neighborhood INNER JOIN organizations ON organizations.id = organization",
 		"header" : "<div class='service'><h3><i class='fa fa-tree'></i> Organization</h3></div>",
 		"style" : [

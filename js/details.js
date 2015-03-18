@@ -15,9 +15,9 @@ function show_details( properties, executing ) {
 	$( "aside" ).empty();
 	$( "#selected" ).text( properties.name );
 	
-	$.ajax( endpoint + '/names/description/' + properties.id, {
-		success : function( data ) {
-			$( "aside" ).append( '<p><i>' + data[ 0 ].description + '</i></p>' );
+	// $.ajax( endpoint + '/names/description/' + properties.id, {
+		// success : function( data ) {
+			// $( "aside" ).append( '<p><i>' + data[ 0 ].description + '</i></p>' );
 			
 			// $.ajax( endpoint + '/services/' + properties.id, {
 				// success : function( data ) {
@@ -41,6 +41,6 @@ function show_details( properties, executing ) {
 					})
 				// }
 			// })
-		}
-	})
+		// }
+	// })
 }
