@@ -1,6 +1,7 @@
 var map,
 	neighborhoods,
 	template,
+	selected,
 	endpoint = window.location.origin + ':3000';
 
 function init(){
@@ -64,7 +65,9 @@ function featureClick( e ) {
 	if ( executing.data( 'executing' ) ) return;
 	executing.data( 'executing', true );
 	
-	if( selected !== undefined && e.target.feature.properties.id != selected.feature.properties.id ) neighborhoods.resetStyle( selected );
+	if( selected !== undefined && e.target.feature.properties.id != selected.feature.properties.id ) {
+		neighborhoods.resetStyle( selected );
+	}
 	selected = e.target;
 	show_details( e.target.feature.properties, executing );
 }
@@ -103,9 +106,12 @@ function init_names() {
 			source : names.ttAdapter()
 		})
 		.on( 'typeahead:selected', function( e, obj ) {
-			selected = get_feature( obj.id );
-			map.fitBounds( selected.getBounds() );
-			selected.fire( 'click' );
+			newFeature = get_feature( obj.id );
+			map.fitBounds( newFeature.getBounds() );
+			newFeature.setStyle({
+				color : '#ed2a24'
+			});
+			newFeature.fire( 'click' );
 		})
 }
 
