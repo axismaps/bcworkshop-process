@@ -115,6 +115,7 @@ function init_names() {
 			if ( selected ) neighborhoods.resetStyle( selected );
 			selected = newFeature;
 			show_details( obj );
+			$( '#search' ).blur();
 		})
 }
 
