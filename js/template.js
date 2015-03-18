@@ -1,14 +1,14 @@
 var template = [
 	{
-		"query" : "SELECT organizations.* FROM neighborhoods INNER JOIN organization_lookup ON neighborhoods.id = neighborhood INNER JOIN organizations ON organizations.id = organization WHERE neighborhoods.id = neighborhood",
+		"query" : "SELECT organizations.* FROM neighborhoods INNER JOIN organization_lookup ON neighborhoods.id = neighborhood INNER JOIN organizations ON organizations.id = organization",
 		"header" : "<div class='service'><h3><i class='fa fa-tree'></i> Organization</h3></div>",
 		"style" : [
 			{
-				"data" : "orgName",
+				"data" : "name",
 				"format" : "<h4>||data||</h4>"
 			},
 			{
-				"data" : "contactName",
+				"data" : "contact",
 				"format" : "<h5>Contact person:</h5><p>||data||</p>"
 			},
 			{
@@ -20,8 +20,8 @@ var template = [
 				"format" : "<h5>Phone:</h5><p>||data||</p>"
 			},
 			{
-				"data" : "website",
-				"format" : "<p><a href='||data||'target='_blank'>Website</a></p>"
+				"data" : "url",
+				"format" : "<p><a href='http://||data||' target='_blank'>Website</a></p>"
 			}
 		],
 		"footer" : "</div>"
