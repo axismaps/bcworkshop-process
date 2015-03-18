@@ -16,20 +16,22 @@ function keyboard_events(){
 	
 	$( document ).on({
 		keydown: function( e ) {
-			var key = e.keyCode;
-			
-			if ( key in panKeys ) {
-				map.panBy( panKeys[ key ] );
+			if( $( '#search' ).is( ':focus' ) ) {
+				var key = e.keyCode;
 				
-				if ( map.options.maxBounds ) {
-					map.panInsideBounds( map.options.maxBounds );
+				if ( key in panKeys ) {
+					map.panBy( panKeys[ key ] );
+					
+					if ( map.options.maxBounds ) {
+						map.panInsideBounds( map.options.maxBounds );
+					}
+					
+					map.panBy( [1, 1] );
+					map.panBy( [-1, -1] );
 				}
-				
-				map.panBy( [1, 1] );
-				map.panBy( [-1, -1] );
-			}
-			else if ( key in zoomKeys ) {
-				map.setZoom( map.getZoom() + zoomKeys[ key ] );
+				else if ( key in zoomKeys ) {
+					map.setZoom( map.getZoom() + zoomKeys[ key ] );
+				}
 			}
 		}
 	});
