@@ -104,6 +104,7 @@ function init_names() {
 		})
 		.on( 'typeahead:selected', function( e, obj ) {
 			selected = get_feature( obj.id );
+			map.fitBounds( selected.getBounds() );
 			selected.fire( 'click' );
 		})
 }
