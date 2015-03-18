@@ -67,6 +67,7 @@ function featureClick( e ) {
 	
 	if( selected !== undefined && e.target.feature.properties.id != selected.feature.properties.id ) {
 		neighborhoods.resetStyle( selected );
+		$( '#name-input' ).val('');
 	}
 	selected = e.target;
 	show_details( e.target.feature.properties, executing );
