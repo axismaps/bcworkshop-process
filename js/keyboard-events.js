@@ -16,7 +16,8 @@ function keyboard_events(){
 	
 	$( document ).on({
 		keydown: function( e ) {
-			if( $( '#search' ).is( ':focus' ) ) {
+			if( $( '#name-input' ).is( ':focus' ) ) {}
+			else {
 				var key = e.keyCode;
 				
 				if ( key in panKeys ) {
