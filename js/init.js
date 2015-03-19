@@ -1,7 +1,7 @@
 var map,
 	neighborhoods,
 	template,
-	selected,
+	selected = {},
 	endpoint = window.location.origin + ':3000';
 
 function init(){
@@ -58,7 +58,7 @@ function highlightFeature( e ) {
 }
 
 function resetHighlight( e ) {
-	if( selected == undefined || e.target.feature.properties.id != selected.feature.properties.id ) neighborhoods.resetStyle( e.target );
+	if( $.isEmptyObject( selected ) || e.target.feature.properties.id != selected.feature.properties.id ) neighborhoods.resetStyle( e.target );
 	$( "#probe" ).hide();
 }
 
@@ -67,7 +67,7 @@ function featureClick( e ) {
 	if ( executing.data( 'executing' ) ) return;
 	executing.data( 'executing', true );
 	
-	if( selected !== undefined && e.target.feature.properties.id != selected.feature.properties.id ) {
+	if( $.isEmptyObject( selected ) || e.target.feature.properties.id != selected.feature.properties.id ) {
 		neighborhoods.resetStyle( selected );
 		$( '#name-input' ).val('');
 	}
