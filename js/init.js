@@ -37,7 +37,10 @@ function init_map(){
 	});
 	
 	//fire intro screen
-	$( '#about' ).modal( 'show' );
+	$( '#about' ).modal({
+		backdrop: 'static',
+		keyboard: false
+	}).modal( 'show' );
 	$( '#about .close').hide();
 		
 	neighborhoods = omnivore.topojson( endpoint + "/topojson/neighborhoods/id%2Cname/", null, layerStyle )
@@ -45,6 +48,10 @@ function init_map(){
 			//sets the maxBounds to the neighborhood bounds + 0.1%
 			map.setMaxBounds( neighborhoods.getBounds().pad( .2 ) );
 			
+			var mdl = $( '#about' ).data( 'bs.modal' );
+			mdl.options.backdrop = true;
+			mdl.options.keyboard = true;
+			mdl.escape();
 			$( '#about .close').show();
 		})
 		.addTo( map );
