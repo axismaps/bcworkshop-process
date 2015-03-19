@@ -41,6 +41,7 @@ function init_map(){
 		backdrop: 'static',
 		keyboard: false
 	}).modal( 'show' );
+	$( '#about #loading-icon').show();
 	$( '#about .close').hide();
 		
 	neighborhoods = omnivore.topojson( endpoint + "/topojson/neighborhoods/id%2Cname/", null, layerStyle )
@@ -52,6 +53,7 @@ function init_map(){
 			mdl.options.backdrop = true;
 			mdl.options.keyboard = true;
 			mdl.escape();
+			$( '#about #loading-icon').hide();
 			$( '#about .close').show();
 		})
 		.addTo( map );
