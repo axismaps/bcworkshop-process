@@ -37,12 +37,14 @@ function init_map(){
     	}
 	});
 		
-	neighborhoods = omnivore.topojson( endpoint + "/topojson/neighborhoods/id%2Cname/", null, layerStyle )
+	neighborhoods = omnivore.topojson( endpoint + "/topojson/neighborhoods/id%2Cname%2Carea/", null, layerStyle )
 		.on( 'ready', function() {
 			//sets the maxBounds to the neighborhood bounds + 0.1%
 			map.setMaxBounds( neighborhoods.getBounds().pad( .2 ) );
 		})
 		.addTo( map );
+		
+	
 }
 
 function highlightFeature( e ) {
