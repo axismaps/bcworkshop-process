@@ -53,7 +53,7 @@ var template = [
 		"footer" : "</div>"
 	},
 	{
-		"query" : "SELECT * FROM acs INNER JOIN neighborhoods ON acs.id = neighborhoods.id",
+		"query" : "SELECT acs.* FROM acs INNER JOIN neighborhoods ON acs.id = neighborhoods.id",
 		"header" : "<div><h3><i class='fa fa-th-list'></i> Summary Stats</h3><table>",
 		"style" : [
 			{
