@@ -36,11 +36,26 @@ function init_map(){
 			});
     	}
 	});
+	
+	//fire intro screen
+	$( '#about' ).modal({
+		backdrop: 'static',
+		keyboard: false
+	}).modal( 'show' );
+	$( '#about #loading-icon').show();
+	$( '#about .close').hide();
 		
 	neighborhoods = omnivore.topojson( endpoint + "/topojson/neighborhoods/id%2Cname%2Carea/", null, layerStyle )
 		.on( 'ready', function() {
 			//sets the maxBounds to the neighborhood bounds + 0.1%
 			map.setMaxBounds( neighborhoods.getBounds().pad( .2 ) );
+			
+			var mdl = $( '#about' ).data( 'bs.modal' );
+			mdl.options.backdrop = true;
+			mdl.options.keyboard = true;
+			mdl.escape();
+			$( '#about #loading-icon').hide();
+			$( '#about .close').show();
 		})
 		.addTo( map );
 		

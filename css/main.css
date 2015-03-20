@@ -73,6 +73,10 @@ header, #map{
 	color: #666;
 }
 
+#about #loading-icon{
+	float: right;
+}
+
 #about .modal-footer{
 	padding-bottom: 20px;
 	text-align: left;
