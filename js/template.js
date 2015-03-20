@@ -1,7 +1,45 @@
 var template = [
 	{
+		"query" : "SELECT description FROM neighborhoods",
+		"header" : "",
+		"style" : [
+			{
+				"data" : "description",
+				"format" : "<p><i>||data||</i></p>"
+			}
+		],
+		"footer" : ""
+	},
+	{
+		"query" : "SELECT organizations.* FROM neighborhoods INNER JOIN organization_lookup ON neighborhoods.id = neighborhood INNER JOIN organizations ON organizations.id = organization",
+		"header" : "<div class='service'><h3><i class='fa fa-tree'></i> Organization</h3></div>",
+		"style" : [
+			{
+				"data" : "name",
+				"format" : "<h4>||data||</h4>"
+			},
+			{
+				"data" : "contact",
+				"format" : "<h5>Contact person:</h5><p>||data||</p>"
+			},
+			{
+				"data" : "email",
+				"format" : "<h5>Email:</h5><p><a href='mailto:||data||'>||data||</a></p>"
+			},
+			{
+				"data" : "phone",
+				"format" : "<h5>Phone:</h5><p>||data||</p>"
+			},
+			{
+				"data" : "url",
+				"format" : "<p><a href='http://||data||' target='_blank'>Website</a></p>"
+			}
+		],
+		"footer" : "</div>"
+	},
+	{
 		"query" : "SELECT neighborhoods.id, type, CASE WHEN type='video' THEN SUBSTRING(link FROM 19) END AS video, CASE WHEN type='doc' THEN link END AS doc FROM resources INNER JOIN neighborhoods ON neighborhoods.id = neighborhood",
-		"header" : "<div><h3>Neighborhood Stories</h3>",
+		"header" : "<div><h3><i class='fa fa-institution'></i> Neighborhood Stories</h3>",
 		"style" : [
 			{
 				"data" : "video",
@@ -16,7 +54,7 @@ var template = [
 	},
 	{
 		"query" : "SELECT * FROM acs INNER JOIN neighborhoods ON acs.id = neighborhoods.id",
-		"header" : "<div><h3><span class='glyphicon glyphicon-th-list'></span> Summary Stats</h3><table>",
+		"header" : "<div><h3><i class='fa fa-th-list'></i> Summary Stats</h3><table>",
 		"style" : [
 			{
 				"data" : "pop2013",

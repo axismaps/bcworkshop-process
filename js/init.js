@@ -1,6 +1,7 @@
 var map,
 	neighborhoods,
 	template,
+	selected = {},
 	endpoint = window.location.origin + ':3000';
 
 function init(){
@@ -26,22 +27,24 @@ function init_map(){
 				color : '#000',
 				weight : 2
 			};
-    		},
-    		onEachFeature : function( feature, layer ) {
-	    		layer.on({
+    	},
+    	onEachFeature : function( feature, layer ) {
+	    	layer.on({
 				mouseover : highlightFeature,
 				mouseout : resetHighlight,
 				click : featureClick
 			});
-    		}
+    	}
 	});
 		
-	neighborhoods = omnivore.topojson( endpoint + "/topojson/neighborhoods/id%2Cname/", null, layerStyle )
+	neighborhoods = omnivore.topojson( endpoint + "/topojson/neighborhoods/id%2Cname%2Carea/", null, layerStyle )
 		.on( 'ready', function() {
 			//sets the maxBounds to the neighborhood bounds + 0.1%
 			map.setMaxBounds( neighborhoods.getBounds().pad( .2 ) );
 		})
 		.addTo( map );
+		
+	
 }
 
 function highlightFeature( e ) {
@@ -55,14 +58,24 @@ function highlightFeature( e ) {
 }
 
 function resetHighlight( e ) {
-	if( selected == undefined || e.target.feature.properties.id != selected.feature.properties.id ) neighborhoods.resetStyle( e.target );
+	if( $.isEmptyObject( selected ) || e.target.feature.properties.id != selected.feature.properties.id ) neighborhoods.resetStyle( e.target );
 	$( "#probe" ).hide();
 }
 
 function featureClick( e ) {
-	if( selected ) neighborhoods.resetStyle( selected );
+	var executing = $( this );
+	if ( executing.data( 'executing' ) ) return;
+	executing.data( 'executing', true );
+	
+	if( $.isEmptyObject( selected ) || e.target.feature.properties.id != selected.feature.properties.id ) {
+		neighborhoods.resetStyle( selected );
+		$( '#name-input' ).val('');
+	}
 	selected = e.target;
-	show_details( e.target.feature.properties );
+	selected.setStyle({
+		color : '#ed2a24'
+	});
+	show_details( e.target.feature.properties, executing );
 }
 
 function init_events(){	
@@ -99,11 +112,15 @@ function init_names() {
 			source : names.ttAdapter()
 		})
 		.on( 'typeahead:selected', function( e, obj ) {
-			selected = get_feature( obj.id );
-			selected.setStyle({
-		        color : '#f00'
-		    });
+			newFeature = get_feature( obj.id );
+			map.fitBounds( newFeature.getBounds() );
+			newFeature.setStyle({
+				color : '#ed2a24'
+			});
+			if ( selected ) neighborhoods.resetStyle( selected );
+			selected = newFeature;
 			show_details( obj );
+			$( '#name-input' ).blur();
 		})
 }
 
