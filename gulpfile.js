@@ -16,7 +16,7 @@ gulp.task( 'default', [ 'clean' ], function(){
 	gulp.src( 'img/*' )
 		.pipe( gulp.dest( 'public/img' ) );
     	
-	gulp.src( 'bower_components/bootstrap/fonts/*' )
+	gulp.src( 'bower_components/fontawesome/fonts/*' )
 		.pipe( gulp.dest( 'public/fonts' ) );
 });
 
