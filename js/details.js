@@ -13,7 +13,8 @@ function show_probe( e, text ) {
 function show_details( properties, executing ) {
 	$( "body" ).addClass( "details" );
 	$( "aside" ).empty();
-	$( "#selected" ).text( properties.name );
+	$( "#selected p" ).text( properties.name );
+	
 	$.ajax( endpoint + '/template', {
 		data : { json : JSON.stringify( template ), id : properties.id },
 		dataType : 'html',

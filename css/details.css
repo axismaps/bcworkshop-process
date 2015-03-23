@@ -95,6 +95,13 @@ aside{
 	border-right: 1px solid #999;
 }
 
+#selected p{
+	width: 250px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
 aside p{
 	margin: 10px;
 }
