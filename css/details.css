@@ -5,13 +5,18 @@
 .tt-dropdown-menu{
 	background-color: white;
 	border: 1px solid #999;
-	box-shadow: 0 0 4.8px 0.3px rgba(0, 0, 0, 0.25);
+	border-radius: 4px;
+	margin-top: 10px;
 }
 
 .tt-suggestion {
     padding: 0 20px;
     line-height: 50px;
     border-bottom: 1px solid #999;
+}
+
+.tt-suggestion:last-child {
+	border: none;
 }
 
 .tt-suggestion.tt-cursor{
