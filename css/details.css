@@ -91,6 +91,7 @@ aside{
 	text-indent: 30px;
 	color: white;
 	background-color: #ed2a24;
+	border-right: 1px solid #999;
 }
 
 aside p{
