@@ -78,6 +78,8 @@ function resetHighlight( e ) {
 }
 
 function featureClick( e ) {
+	if( selected.hasOwnProperty( 'feature' ) && e.target.feature.properties.id == selected.feature.properties.id ) return;
+	
 	var executing = $( this );
 	if ( executing.data( 'executing' ) ) return;
 	executing.data( 'executing', true );
