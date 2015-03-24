@@ -168,4 +168,5 @@ aside td:last-child{
 aside #aside-loading{
 	text-align: center;
 	border: none;
+	margin-top: 50%;
 }
