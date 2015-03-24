@@ -7,11 +7,6 @@ a:hover{
 	border: 1px solid #999;
 }
 
-.btn-group .btn:not( :first-child ){
-	border-left: 1px solid #ccc;
-	margin-left: 0;
-}
-
 #drawing .btn.disabled {
 	opacity: 1;
 }
@@ -21,7 +16,7 @@ a:hover{
 }
 
 .btn-primary:hover, .btn-primary:focus{
-	background-color: #df3330;
+	background-color: #ff423f;
 }
 
 .btn-info, .btn-info.disabled{

@@ -16,7 +16,8 @@ function show_details( properties, executing ) {
 	resize();
 	if ( pan_offset ) map.panBy([ $( "aside" ).outerWidth()/2, 0 ],{animate:false});
 	$( "aside" ).empty();
-	$( "#selected" ).text( properties.name );
+	$( "#selected p" ).text( properties.name );
+	
 	$.ajax( endpoint + '/template', {
 		data : { json : JSON.stringify( template ), id : properties.id },
 		dataType : 'html',
