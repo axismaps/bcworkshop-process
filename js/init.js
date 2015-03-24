@@ -98,6 +98,14 @@ function featureClick( e ) {
 function init_events(){	
 	$( window ).resize( resize );
 	
+	$( '#name-input' ).on( 'focus', function(){
+		$( 'aside' ).addClass( 'fixfixed' );
+	});
+	
+	$( '#name-input' ).on( 'blur', function(){
+		$( 'aside' ).removeClass( 'fixfixed' );
+	});
+	
 	$( "#zoom-out" ).click( function(){
 		map.zoomOut();
 		if( map.getZoom() - 1 <= map.getMinZoom() ) $( "#zoom-out" ).addClass( "disabled" );
