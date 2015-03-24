@@ -92,6 +92,7 @@ function featureClick( e ) {
 	selected.setStyle({
 		color : '#ed2a24'
 	});
+	load_process_boundaries( e.target.feature.properties, executing );
 	show_details( e.target.feature.properties, executing );
 }
 
