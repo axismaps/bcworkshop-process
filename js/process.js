@@ -5,14 +5,14 @@ function load_process_boundaries( properties, executing ){
 		style : function( feature ) {
 			return { 
 				color : '#000',
-				weight : 2
+				weight : 2,
+				fillOpacity : '.05'
 			};
     	},
     	onEachFeature : function( feature, layer ) {
 	    	layer.on({
 				mouseover : highlightFeature,
-				mouseout : resetHighlight,
-				click : featureClick
+				mouseout : resetHighlight
 			});
     	}
 	});
