@@ -4,15 +4,27 @@ function load_process_boundaries( properties, executing ){
 	var layerStyle = L.geoJson( null, {
 		style : function( feature ) {
 			return { 
-				color : '#000',
+				color : '#ed2a24',
 				weight : 2,
-				fillOpacity : '.05'
+				opacity : '.05',
+				fillColor : '#ed2a24',
+				fillOpacity : '.02'
 			};
     	},
     	onEachFeature : function( feature, layer ) {
 	    	layer.on({
-				mouseover : highlightFeature,
-				mouseout : resetHighlight
+				mouseover : function( e ) {	
+					e.target.setStyle({
+						opacity : '1',
+						fillOpacity : '.3'
+					});
+					
+					show_probe( e, e.target.feature.properties.name );
+				},
+				mouseout : function( e ) {
+					if( $.isEmptyObject( selected ) || e.target.feature.properties.id != selected.feature.properties.id ) process_neighborhoods.resetStyle( e.target );
+					$( "#probe" ).hide();
+				}
 			});
     	}
 	});
