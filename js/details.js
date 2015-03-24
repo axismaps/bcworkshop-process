@@ -11,7 +11,10 @@ function show_probe( e, text ) {
 }
 
 function show_details( properties, executing ) {
+	var pan_offset = !$( "body" ).hasClass( "details" );
 	$( "body" ).addClass( "details" );
+	resize();
+	if ( pan_offset ) map.panBy([ $( "aside" ).outerWidth()/2, 0 ],{animate:false});
 	$( "aside" ).empty();
 	$( "#selected" ).text( properties.name );
 	$.ajax( endpoint + '/template', {
