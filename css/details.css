@@ -164,3 +164,8 @@ aside td:first-child:after{
 aside td:last-child{
 	text-align: right;
 }
+
+aside #aside-loading{
+	text-align: center;
+	border: none;
+}
