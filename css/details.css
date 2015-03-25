@@ -102,6 +102,18 @@ aside{
 	white-space: nowrap;
 }
 
+#selected .close{
+	margin-top: 20px;
+	margin-right: 10px;
+	color: #fff;
+	opacity: .9;
+	text-shadow: 0 1px 0 #999;
+}
+
+#selected .close:hover{
+	opacity: .5;
+}
+
 aside p{
 	margin: 10px;
 }

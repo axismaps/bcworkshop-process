@@ -1,7 +1,9 @@
 var map,
 	neighborhoods,
+	process_neighborhoods,
 	template,
 	selected = {},
+	faded = false,
 	endpoint = window.location.origin + ':3000';
 
 function init(){
@@ -45,7 +47,7 @@ function init_map(){
 	$( '#about #loading-icon').show();
 	$( '#about .close').hide();
 		
-	neighborhoods = omnivore.topojson( endpoint + "/topojson/neighborhoods/id%2Cname%2Carea/", null, layerStyle )
+	neighborhoods = omnivore.topojson( endpoint + "/topojson/neighborhoods/id%2Cname%2Carea/id%20IN%20(SELECT%20process%20FROM%20neighborhoods_collection)", null, layerStyle )
 		.on( 'ready', function() {
 			//sets the maxBounds to the neighborhood bounds + 0.1%
 			map.setMaxBounds( neighborhoods.getBounds().pad( .2 ) );
@@ -65,15 +67,32 @@ function init_map(){
 function highlightFeature( e ) {
 	var layer = e.target;
 	
-	layer.setStyle({
-        color : '#ed2a24'
-    });
+	if( faded ) {
+		layer.setStyle({
+			color : '#ed2a24',
+			fillOpacity : '.3'
+		});
+	} else {
+		layer.setStyle({
+			color : '#ed2a24'
+		});
+	}
     
 	show_probe( e, layer.feature.properties.name );
 }
 
 function resetHighlight( e ) {
-	if( $.isEmptyObject( selected ) || e.target.feature.properties.id != selected.feature.properties.id ) neighborhoods.resetStyle( e.target );
+	if( $.isEmptyObject( selected ) || e.target.feature.properties.id != selected.feature.properties.id ) {
+		if( faded ) {
+			neighborhoods.setStyle({ 
+				color : '#000',
+				opacity : '.2',
+				fillOpacity : '.08'
+			});
+		} else {
+			neighborhoods.resetStyle( e.target );
+		}
+	}
 	$( "#probe" ).hide();
 }
 
@@ -92,6 +111,7 @@ function featureClick( e ) {
 	selected.setStyle({
 		color : '#ed2a24'
 	});
+	load_process_boundaries( e.target.feature.properties, executing );
 	show_details( e.target.feature.properties, executing );
 }
 
@@ -104,6 +124,10 @@ function init_events(){
 	
 	$( '#name-input' ).on( 'blur', function(){
 		$( 'aside' ).removeClass( 'fixfixed' );
+	});
+	
+	$( "#close-aside" ).click( function() {
+		reset_process();
 	});
 	
 	$( "#zoom-out" ).click( function(){
