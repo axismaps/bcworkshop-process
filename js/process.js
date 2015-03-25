@@ -1,4 +1,6 @@
 function load_process_boundaries( properties, executing ){
+	if( typeof process_neighborhoods != "undefined" ) map.removeLayer( process_neighborhoods );
+	
 	var layerStyle = L.geoJson( null, {
 		style : function( feature ) {
 			return { 
