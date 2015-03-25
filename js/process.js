@@ -32,6 +32,7 @@ function load_process_boundaries( properties, executing ){
 	process_neighborhoods = omnivore.topojson( endpoint + "/process/" + properties.id, null, layerStyle )
 		.on( 'ready', function() {
 			map.removeLayer( neighborhoods );
+			map.fitBounds( process_neighborhoods.getBounds() );
 		})
 		.addTo( map );
 }
