@@ -1,6 +1,4 @@
 function load_process_boundaries( properties, executing ){
-	// console.log( properties );
-	
 	var layerStyle = L.geoJson( null, {
 		style : function( feature ) {
 			return { 
@@ -31,7 +29,6 @@ function load_process_boundaries( properties, executing ){
 	
 	process_neighborhoods = omnivore.topojson( endpoint + "/process/" + properties.id, null, layerStyle )
 		.on( 'ready', function() {
-			// map.removeLayer( neighborhoods );
 			neighborhoods.setStyle({
 				opacity : '.2',
 				fillOpacity : '.08'
