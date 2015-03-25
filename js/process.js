@@ -31,6 +31,7 @@ function load_process_boundaries( properties, executing ){
 	
 	process_neighborhoods = omnivore.topojson( endpoint + "/process/" + properties.id, null, layerStyle )
 		.on( 'ready', function() {
+			faded = true
 			neighborhoods.setStyle({
 				opacity : '.2',
 				fillOpacity : '.08'

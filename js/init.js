@@ -2,6 +2,7 @@ var map,
 	neighborhoods,
 	template,
 	selected = {},
+	faded = false,
 	endpoint = window.location.origin + ':3000';
 
 function init(){
@@ -65,15 +66,32 @@ function init_map(){
 function highlightFeature( e ) {
 	var layer = e.target;
 	
-	layer.setStyle({
-        color : '#ed2a24'
-    });
+	if( faded ) {
+		layer.setStyle({
+			color : '#ed2a24',
+			fillOpacity : '.3'
+		});
+	} else {
+		layer.setStyle({
+			color : '#ed2a24'
+		});
+	}
     
 	show_probe( e, layer.feature.properties.name );
 }
 
 function resetHighlight( e ) {
-	if( $.isEmptyObject( selected ) || e.target.feature.properties.id != selected.feature.properties.id ) neighborhoods.resetStyle( e.target );
+	if( $.isEmptyObject( selected ) || e.target.feature.properties.id != selected.feature.properties.id ) {
+		if( faded ) {
+			neighborhoods.setStyle({ 
+				color : '#000',
+				opacity : '.2',
+				fillOpacity : '.08'
+			});
+		} else {
+			neighborhoods.resetStyle( e.target );
+		}
+	}
 	$( "#probe" ).hide();
 }
 
