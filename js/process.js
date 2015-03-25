@@ -40,3 +40,18 @@ function load_process_boundaries( properties, executing ){
 		})
 		.addTo( map );
 }
+
+function reset_process() {	
+	var pan_offset = $( "body" ).hasClass( "details" );
+	$( "body" ).removeClass( "details" );
+	resize();
+	$( "aside" ).empty();
+	
+	map.removeLayer( process_neighborhoods );
+	
+	neighborhoods.setStyle({
+		opacity : '.5',
+		fillOpacity : '.2'
+	})
+	faded = false;
+}

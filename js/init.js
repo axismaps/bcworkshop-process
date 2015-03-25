@@ -1,5 +1,6 @@
 var map,
 	neighborhoods,
+	process_neighborhoods,
 	template,
 	selected = {},
 	faded = false,
@@ -123,6 +124,10 @@ function init_events(){
 	
 	$( '#name-input' ).on( 'blur', function(){
 		$( 'aside' ).removeClass( 'fixfixed' );
+	});
+	
+	$( "#close-aside" ).click( function() {
+		reset_process();
 	});
 	
 	$( "#zoom-out" ).click( function(){
