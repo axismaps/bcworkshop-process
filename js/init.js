@@ -45,7 +45,7 @@ function init_map(){
 	$( '#about #loading-icon').show();
 	$( '#about .close').hide();
 		
-	neighborhoods = omnivore.topojson( endpoint + "/topojson/neighborhoods/id%2Cname%2Carea/", null, layerStyle )
+	neighborhoods = omnivore.topojson( endpoint + "/topojson/neighborhoods/id%2Cname%2Carea/id%20IN%20(SELECT%20process%20FROM%20neighborhoods_collection)", null, layerStyle )
 		.on( 'ready', function() {
 			//sets the maxBounds to the neighborhood bounds + 0.1%
 			map.setMaxBounds( neighborhoods.getBounds().pad( .2 ) );
