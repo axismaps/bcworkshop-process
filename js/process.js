@@ -48,6 +48,7 @@ function reset_process() {
 	$( "aside" ).empty();
 	
 	map.removeLayer( process_neighborhoods );
+	selected = {};
 	
 	neighborhoods.setStyle({
 		opacity : '.5',
