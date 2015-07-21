@@ -28,8 +28,33 @@ function load_process_boundaries( properties, executing ){
 			});
     	}
 	});
-	
-	process_neighborhoods = omnivore.topojson( endpoint + "/process/" + properties.id, null, layerStyle )
+  
+  var processStyle = L.geoJson( null, {
+    style : function( feature ) {
+			return {
+				color : '#ed2a24',
+				weight : 2,
+				opacity : '.05',
+				fillColor : '#ed2a24',
+				fillOpacity : '.02'
+			};
+    },
+    onEachFeature : function( feature, layer ) {
+      layer.on({
+        mouseover : function( e ) {
+          e.target.setStyle({
+            opacity : '1',
+            fillOpacity : '.3'
+          });
+        },
+        mouseout : function( e ) {
+          if( $.isEmptyObject( selected ) || e.target.feature.properties.id != selected.feature.properties.id ) process_neighborhoods.resetStyle( e.target );
+        }
+      });
+    }  
+  });
+  
+	process_neighborhoods = omnivore.topojson( endpoint + "/process/" + properties.id, null, processStyle )
 		.on( 'ready', function() {
 			faded = true
 			neighborhoods.setStyle({
