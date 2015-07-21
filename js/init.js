@@ -162,13 +162,7 @@ function init_names() {
 		})
 		.on( 'typeahead:selected', function( e, obj ) {
 			newFeature = get_feature( obj.id );
-			map.fitBounds( newFeature.getBounds() );
-			newFeature.setStyle({
-				color : '#ed2a24'
-			});
-			if ( selected ) neighborhoods.resetStyle( selected );
-			selected = newFeature;
-			show_details( obj );
+      newFeature.fire( 'click' );
 			$( '#name-input' ).blur();
 		})
 }
